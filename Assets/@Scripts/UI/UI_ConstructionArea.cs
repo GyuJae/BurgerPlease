@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +13,11 @@ public class UI_ConstructionArea : MonoBehaviour
     }
 
     void Update()
+    {
+
+    }
+
+    void OnTriggerStay(Collider other)
     {
         slider.value += 0.1f * Time.deltaTime;
     }
