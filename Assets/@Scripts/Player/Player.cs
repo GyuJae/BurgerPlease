@@ -1,11 +1,13 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(AudioSource))]
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour, IWorker
 {
     [SerializeField] [Range(1, 5)]
     float moveSpeed = 3;
@@ -13,11 +15,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float rotateSpeed = 360;
 
+    [SerializeField]
+    GameObject carriedItemsObject;
+
+    [SerializeField]
+    GameObject testPickablePrefab;
+
     Animator animator;
     CharacterController controller;
     AudioSource audioSource;
 
     IPlayerState state { get; set; } = NullPlayerState.Instance;
+
+    CarriedItems _carriedItems;
 
     void Awake()
     {
@@ -25,7 +35,33 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         audioSource = GetComponent<AudioSource>();
 
+        _carriedItems = CarriedItems.Of(carriedItemsObject);
+
         ChangeState(PlayerIdleState.Instance);
+    }
+
+    void Start()
+    {
+        StartCoroutine(CoTestPickUp());
+    }
+
+    IEnumerator CoTestPickUp()
+    {
+        while (true) {
+            if (testPickablePrefab != null) {
+                GameObject newItem = Instantiate(testPickablePrefab);
+                IPickable pickable = newItem.GetComponent<IPickable>();
+
+                if (pickable != null) {
+                    PickUp(pickable);
+                }
+                else {
+                    Debug.LogWarning("TestPickablePrefab에 IPickable 컴포넌트가 없음");
+                    Destroy(newItem);
+                }
+            }
+            yield return new WaitForSeconds(1.0f); // 1초마다 하나씩
+        }
     }
 
     void Update()
@@ -67,5 +103,12 @@ public class PlayerController : MonoBehaviour
     public bool IsStop()
     {
         return GameManager.Instance.Dir == Vector2.zero;
+    }
+
+    public void PickUp(IPickable item)
+    {
+        _carriedItems.Add(item);
+        item.OnPickedUp(this);
+        Debug.Log("Player pick up item");
     }
 }

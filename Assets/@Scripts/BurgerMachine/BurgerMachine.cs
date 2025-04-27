@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,7 +12,7 @@ public class BurgerMachine : MonoBehaviour
     Tray tray;
 
     [SerializeField]
-    GameObject burger;
+    Burger burger;
 
     [SerializeField]
     GameObject maxBubble;
@@ -29,7 +30,7 @@ public class BurgerMachine : MonoBehaviour
     void AddBurger()
     {
         if (tray.IsFull()) return;
-        tray.AddItem(burger);
+        tray.AddItem(burger.GameObject());
     }
 
     IEnumerator CoMakeBurger()

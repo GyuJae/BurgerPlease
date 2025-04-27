@@ -11,13 +11,13 @@
     {
     }
 
-    public void Enter(PlayerController player)
+    public void Enter(Player player)
     {
     }
-    public void Update(PlayerController player)
+    public void Update(Player player)
     {
     }
-    public void Exit(PlayerController player)
+    public void Exit(Player player)
     {
     }
 }

@@ -13,12 +13,12 @@ public class PlayerMoveState : IPlayerState
     {
     }
 
-    public void Enter(PlayerController player)
+    public void Enter(Player player)
     {
         player.CrossFadeAnimate("Move", 0.05f);
     }
 
-    public void Update(PlayerController player)
+    public void Update(Player player)
     {
         if (player.IsStop()) {
             player.ChangeState(PlayerIdleState.Instance);
@@ -37,7 +37,7 @@ public class PlayerMoveState : IPlayerState
         player.Rotate(moveDir);
     }
 
-    public void Exit(PlayerController player)
+    public void Exit(Player player)
     {
     }
 }

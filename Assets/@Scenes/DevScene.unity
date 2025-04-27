@@ -3784,7 +3784,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grill: {fileID: 862465812}
   tray: {fileID: 825160963}
-  burger: {fileID: 4963893364559944225, guid: fae6388a0c445d94086958a8c669d2c4, type: 3}
+  burger: {fileID: 4925725828607531246, guid: fae6388a0c445d94086958a8c669d2c4, type: 3}
   maxBubble: {fileID: 355665328}
 --- !u!4 &705167096
 Transform:
@@ -4194,6 +4194,14 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6605586038907593646, guid: dcdcd98c864b4be45aeaab83dedcfbb0, type: 3}
+      propertyPath: carriedItemsObject
+      value: 
+      objectReference: {fileID: 1886442106}
+    - target: {fileID: 6605586038907593646, guid: dcdcd98c864b4be45aeaab83dedcfbb0, type: 3}
+      propertyPath: testPickablePrefab
+      value: 
+      objectReference: {fileID: 4963893364559944225, guid: fae6388a0c445d94086958a8c669d2c4, type: 3}
     - target: {fileID: 8372859789832071278, guid: dcdcd98c864b4be45aeaab83dedcfbb0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4256,6 +4264,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9185530362286568148, guid: dcdcd98c864b4be45aeaab83dedcfbb0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1839681309}
+    - targetCorrespondingSourceObject: {fileID: 9185530362286568148, guid: dcdcd98c864b4be45aeaab83dedcfbb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1886442107}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcdcd98c864b4be45aeaab83dedcfbb0, type: 3}
 --- !u!1001 &776973404
@@ -7843,6 +7854,37 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 759985189577790630, guid: 7ad4316341b99e749a30991083ade455, type: 3}
   m_PrefabInstance: {fileID: 595907059}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1886442106
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1886442107}
+  m_Layer: 0
+  m_Name: CarriedItems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1886442107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886442106}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1698680079}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1897947642 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3244652858345191040, guid: 1bb7c18335201a144a87bb695f477c48, type: 3}

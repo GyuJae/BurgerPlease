@@ -11,18 +11,18 @@
     {
     }
 
-    public void Enter(PlayerController player)
+    public void Enter(Player player)
     {
         player.CrossFadeAnimate("Idle", 0.1f);
     }
 
-    public void Update(PlayerController player)
+    public void Update(Player player)
     {
         if (player.IsStop()) return;
         player.ChangeState(PlayerMoveState.Instance);
     }
 
-    public void Exit(PlayerController player)
+    public void Exit(Player player)
     {
     }
 }
